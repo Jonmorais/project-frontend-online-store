@@ -66,68 +66,68 @@ class Initial extends Component {
     const { handleChangeOnCart } = this.props;
     const quantity = 1;
     return (
-      <div className="main-content">
+      <div>
+        <Header change={ this.handleChange } search={ this.fetchProducts } />
 
-        <div className="category">
-          {
-            categories.map(({ name, id }) => (
-              <div key={ id } data-testid="category">
-                <label htmlFor={ id }>
-                  <input
-                    type="radio"
-                    name="category"
-                    id={ id }
-                    value={ id }
-                    onChange={ this.handleChangeOnInput }
-                  />
-                  {name}
-                </label>
-              </div>
-            ))
-          }
-        </div>
+        <div className="main-content">
 
-        <div className="content">
-          <Header change={ this.handleChange } search={ this.fetchProducts } />
-          <p data-testid="home-initial-message">
-            Digite algum termo de pesquisa ou escolha uma categoria.
-          </p>
-          <div>
+          <div className="category">
             {
-              products.map(({ id, title, price, thumbnail, attributes }) => (
-                <div key={ id }>
-                  <Link
-                    data-testid="product-detail-link"
-                    to={ {
-                      pathname: `/product-detail/${id}`,
-                      title,
-                      price,
-                      thumbnail,
-                      attributes,
-                      id,
-                    } }
-                  >
-                    <div data-testid="product">
-                      <img src={ thumbnail } alt={ title } />
-                      <p>{title}</p>
-                      <p>{price}</p>
-                    </div>
-                  </Link>
-                  <button
-                    type="button"
-                    data-testid="product-add-to-cart"
-                    onClick={ () => (
-                      handleChangeOnCart({ title, thumbnail, price, id, quantity })
-                    ) }
-                  >
-                    Add to cart
-                  </button>
+              categories.map(({ name, id }) => (
+                <div key={ id } data-testid="category">
+                  <label htmlFor={ id }>
+                    <input
+                      type="radio"
+                      name="category"
+                      id={ id }
+                      value={ id }
+                      onChange={ this.handleChangeOnInput }
+                    />
+                    {name}
+                  </label>
                 </div>
               ))
             }
           </div>
-        </div>
 
+          <div className="content content-color" id="products-session">
+            <div>
+              {
+                products.map(({ id, title, price, thumbnail, attributes }) => (
+                  <div key={ id }>
+                    <Link
+                      data-testid="product-detail-link"
+                      to={ {
+                        pathname: `/product-detail/${id}`,
+                        title,
+                        price,
+                        thumbnail,
+                        attributes,
+                        id,
+                      } }
+                    >
+                      <div data-testid="product">
+                        <img src={ thumbnail } alt={ title } />
+                        <p>{title}</p>
+                        <p>{price}</p>
+                      </div>
+                    </Link>
+                    <button
+                      type="button"
+                      data-testid="product-add-to-cart"
+                      onClick={ () => (
+                        handleChangeOnCart({ title, thumbnail, price, id, quantity })
+                      ) }
+                    >
+                      Add to cart
+                    </button>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+
+        </div>
       </div>
     );
   }
