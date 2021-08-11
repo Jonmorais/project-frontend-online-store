@@ -14,7 +14,8 @@ class App extends React.Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleQuantity = this.handleQuantity.bind(this);
+    this.handleQuantityIncrease = this.handleQuantityIncrease.bind(this);
+    this.handleQuantityDecrease = this.handleQuantityDecrease.bind(this);
   }
 
   handleChange(product) {
@@ -24,20 +25,20 @@ class App extends React.Component {
     } else {
       products[product.id] = product;
     }
-    this.setState({
-      products,
-    });
+    // this.setState({
+    //   products,
+    // });
   }
 
-  handleQuantity(event, id) {
-    const { target } = event;
+  handleQuantityIncrease(id) {
     const { products } = this.state;
-    const operation = target.innerText;
-    if (operation === '+') {
-      products[id].quantity += 1;
-    } else {
-      products[id].quantity -= 1;
-    }
+    products[id].quantity += 1;
+    this.setState({ products });
+  }
+
+  handleQuantityDecrease(id) {
+    const { products } = this.state;
+    products[id].quantity -= 1;
     this.setState({ products });
   }
 
@@ -57,7 +58,8 @@ class App extends React.Component {
               component={ () => (
                 <ShoppingCart
                   products={ products }
-                  handleQuantity={ this.handleQuantity }
+                  handleQuantityIncrease={ this.handleQuantityIncrease }
+                  handleQuantityDecrease={ this.handleQuantityDecrease }
                 />
               ) }
             />
