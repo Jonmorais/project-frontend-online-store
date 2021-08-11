@@ -12,7 +12,7 @@
 }
 
 .content-color {
-  background-color: #EEEEEE;
+  background-color: #eee;
 }
 
 .product-card {
@@ -25,9 +25,9 @@
 }
 
 .category {
-  background-color: #393E46;
-  width: 16vw;
+  background-color: #393e46;
   border-radius: 10px;
+  width: 16vw;
 }
 
 .category :hover {
@@ -37,35 +37,34 @@
 }
 
 .category div {
-  color: #EEEEEE;
+  color: #eee;
+  height: fit-content;
   margin: 2px;
   padding: 3px;
-  height: fit-content;
 }
 
 .header {
-  background-color: #FFD369;
+  background-color: #ffd369;
   border-radius: 5px;
   flex-flow: row wrap;
   padding: 5px;
 }
 
 /* Isso é apenas para esconder o texto do requisito obrigatório */
-
 .header p {
-  color: #FFD369;
+  color: #ffd369;
   height: 40px;
 }
 
 .header img:hover {
-  background-color: #EEEEEE;
+  background-color: #eee;
   border-radius: 5px;
   height: 35px;
 }
 
 .header input {
   align-items: center;
-  background-image: url("https://www.svgrepo.com/show/23287/magnifier.svg");
+  background-image: url('https://www.svgrepo.com/show/23287/magnifier.svg');
   background-position: right;
   background-repeat: no-repeat;
   border-radius: 10px;
@@ -77,14 +76,12 @@
   width: 400px;
 }
 
-
-
 .header button {
   align-items: center;
   display: flex;
   height: 22px;
+  justify-content: center;
   margin: auto;
   margin-left: 5px;
   margin-right: 10px;
-  justify-content: center;
 }
