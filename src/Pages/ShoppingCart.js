@@ -7,7 +7,10 @@ class ShoppingCart extends Component {
     const { products, handleQuantityDecrease, handleQuantityIncrease } = this.props;
     if (Object.keys(products).length === 0) {
       return (
-        <p data-testid="shopping-cart-empty-message">Seu carrinho está vazio</p>
+        <>
+          <p data-testid="shopping-cart-empty-message">Seu carrinho está vazio</p>
+          <Link to="/">Back</Link>
+        </>
       );
     }
 
