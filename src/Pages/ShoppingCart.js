@@ -7,7 +7,10 @@ class ShoppingCart extends Component {
     const { products, handleQuantityDecrease, handleQuantityIncrease } = this.props;
     if (Object.keys(products).length === 0) {
       return (
-        <p data-testid="shopping-cart-empty-message">Seu carrinho está vazio</p>
+        <>
+          <p data-testid="shopping-cart-empty-message">Seu carrinho está vazio</p>
+          <Link to="/">Back</Link>
+        </>
       );
     }
 
@@ -39,6 +42,14 @@ class ShoppingCart extends Component {
             </div>
           ))
         }
+        <Link to="/finish-buy">
+          <button
+            type="button"
+            data-testid="checkout-products"
+          >
+            Finish buy
+          </button>
+        </Link>
         <Link to="/">Back</Link>
       </div>
     );

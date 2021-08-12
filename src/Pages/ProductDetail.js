@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Header from '../Components/Header';
+import Form from '../Components/Form';
 
 class ProductDetail extends Component {
   render() {
@@ -30,6 +31,7 @@ class ProductDetail extends Component {
         >
           Add to cart
         </button>
+        <Form />
         <Link to="/">Back</Link>
       </div>
     );
