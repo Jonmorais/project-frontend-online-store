@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import ShoppingCart from './Pages/ShoppingCart';
 import Initial from './Pages/Initial';
 import ProductDetail from './Pages/ProductDetail';
+import FinishBuy from './Pages/FinishBuy';
 
 class App extends React.Component {
   constructor() {
@@ -62,6 +63,10 @@ class App extends React.Component {
                   handleQuantityDecrease={ this.handleQuantityDecrease }
                 />
               ) }
+            />
+            <Route
+              path="/finish-buy"
+              component={ FinishBuy }
             />
             <Route
               path="/product-detail/:id"

@@ -52,7 +52,7 @@ class Form extends Component {
         <button
           type="button"
         >
-          Avaliar
+          Evaluate
         </button>
       </>
     );
