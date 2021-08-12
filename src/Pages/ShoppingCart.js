@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import './ShoppingCart.css';
 
 class ShoppingCart extends Component {
   render() {
@@ -15,7 +16,7 @@ class ShoppingCart extends Component {
     }
 
     return (
-      <div>
+      <div className="session">
         {
           Object.keys(products).map((id) => (
             <div key={ products[id].id }>

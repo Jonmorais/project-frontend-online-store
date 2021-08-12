@@ -69,7 +69,7 @@ class Initial extends Component {
       <div>
         <Header change={ this.handleChange } search={ this.fetchProducts } />
 
-        <div className="main-content">
+        <div className="main-content products-session">
 
           <div className="category">
             {
@@ -90,8 +90,8 @@ class Initial extends Component {
             }
           </div>
 
-          <div className="content content-color" id="products-session">
-            <div>
+          <div className="content-container" id="products-session">
+            <div className="content">
               {
                 products.map(({ id, title, price, thumbnail, attributes }) => (
                   <div key={ id }>
@@ -106,21 +106,21 @@ class Initial extends Component {
                         id,
                       } }
                     >
-                      <div data-testid="product">
+                      <div data-testid="product" className="product">
                         <img src={ thumbnail } alt={ title } />
                         <p>{title}</p>
                         <p>{price}</p>
+                        <button
+                          type="button"
+                          data-testid="product-add-to-cart"
+                          onClick={ () => (
+                            handleChangeOnCart({ title, thumbnail, price, id, quantity })
+                          ) }
+                        >
+                          Add to cart
+                        </button>
                       </div>
                     </Link>
-                    <button
-                      type="button"
-                      data-testid="product-add-to-cart"
-                      onClick={ () => (
-                        handleChangeOnCart({ title, thumbnail, price, id, quantity })
-                      ) }
-                    >
-                      Add to cart
-                    </button>
                   </div>
                 ))
               }
