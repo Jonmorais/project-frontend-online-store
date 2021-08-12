@@ -1,0 +1,36 @@
+.session {
+  align-items: center;
+  background-color: gainsboro;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 1000px;
+  justify-content: center;
+  margin: 30px;
+  max-height: max-content;
+  max-width: auto;
+  padding: 20px;
+}
+
+div .session {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.session img {
+  border-radius: 15px;
+  height: 100px;
+  margin: 15px;
+  width: 50px;
+}
+
+.session a {
+  background-color: rgb(190, 185, 185);
+  border-radius: 5px;
+  color: black;
+  padding: 5px;
+  text-decoration: none;
+}
