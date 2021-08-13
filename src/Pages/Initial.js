@@ -110,17 +110,17 @@ class Initial extends Component {
                         <img src={ thumbnail } alt={ title } />
                         <p>{title}</p>
                         <p>{price}</p>
-                        <button
-                          type="button"
-                          data-testid="product-add-to-cart"
-                          onClick={ () => (
-                            handleChangeOnCart({ title, thumbnail, price, id, quantity })
-                          ) }
-                        >
-                          Add to cart
-                        </button>
                       </div>
                     </Link>
+                    <button
+                      type="button"
+                      data-testid="product-add-to-cart"
+                      onClick={ () => (
+                        handleChangeOnCart({ title, thumbnail, price, id, quantity })
+                      ) }
+                    >
+                      Add to cart
+                    </button>
                   </div>
                 ))
               }

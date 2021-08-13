@@ -39,22 +39,7 @@ class ProductDetail extends Component {
           </div>
           <Link to="/">Back</Link>
         </div>
-        <p data-testid="product-detail-name">
-          { title }
-        </p>
-        <p>
-          {price}
-        </p>
-        <img alt={ title } src={ thumbnail } />
-        <button
-          type="button"
-          data-testid="product-detail-add-to-cart"
-          onClick={ () => handleChange({ title, thumbnail, price, id, quantity }) }
-        >
-          Add to cart
-        </button>
-        <Form />
-        <Link to="/">Back</Link>
+
       </div>
     );
   }
