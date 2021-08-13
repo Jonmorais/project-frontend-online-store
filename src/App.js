@@ -19,7 +19,10 @@ class App extends React.Component {
     this.handleQuantityDecrease = this.handleQuantityDecrease.bind(this);
     this.addQuantity = this.addQuantity.bind(this);
     this.removeQuantity = this.removeQuantity.bind(this);
-    localStorage.setItem('quantidade', 0);
+    const quantidade = localStorage.getItem('quantidade');
+    if (!quantidade) {
+      localStorage.setItem('quantidade', 0);
+    }
   }
 
   handleChange(product) {
