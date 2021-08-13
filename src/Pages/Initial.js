@@ -13,6 +13,7 @@ class Initial extends Component {
       categoryId: '',
       query: '',
       products: [],
+      quantidade: 0,
     };
 
     this.fetchProducts = this.fetchProducts.bind(this);
@@ -23,6 +24,7 @@ class Initial extends Component {
   componentDidMount() {
     this.fetchCategories();
     this.fetchProducts();
+    this.getQuantity();
   }
 
   handleChange(event) {
@@ -44,6 +46,11 @@ class Initial extends Component {
     }
   }
 
+  getQuantity() {
+    const quantidade = Number(localStorage.getItem('quantidade'));
+    this.setState({ quantidade });
+  }
+
   async fetchCategories() {
     const categories = await api.getCategories();
     this.setState({
@@ -62,12 +69,13 @@ class Initial extends Component {
   }
 
   render() {
-    const { categories, products } = this.state;
+    const { categories, products, quantidade } = this.state;
     const { handleChangeOnCart } = this.props;
     const quantity = 1;
     return (
       <div>
         <Header change={ this.handleChange } search={ this.fetchProducts } />
+        <p data-testid="shopping-cart-size">{ quantidade }</p>
 
         <div className="main-content products-session">
 
@@ -93,36 +101,51 @@ class Initial extends Component {
           <div className="content-container" id="products-session">
             <div className="content">
               {
-                products.map(({ id, title, price, thumbnail, attributes }) => (
-                  <div key={ id }>
-                    <Link
-                      data-testid="product-detail-link"
-                      to={ {
-                        pathname: `/product-detail/${id}`,
-                        title,
-                        price,
-                        thumbnail,
-                        attributes,
-                        id,
-                      } }
-                    >
-                      <div data-testid="product" className="product">
-                        <img src={ thumbnail } alt={ title } />
-                        <p>{title}</p>
-                        <p>{price}</p>
-                      </div>
-                    </Link>
-                    <button
-                      type="button"
-                      data-testid="product-add-to-cart"
-                      onClick={ () => (
-                        handleChangeOnCart({ title, thumbnail, price, id, quantity })
-                      ) }
-                    >
-                      Add to cart
-                    </button>
-                  </div>
-                ))
+                products.map(
+                  (
+                    { id, title, price, thumbnail,
+                      attributes, available_quantity: available, shipping },
+                  ) => (
+                    <div key={ id }>
+                      <Link
+                        data-testid="product-detail-link"
+                        to={ {
+                          pathname: `/product-detail/${id}`,
+                          title,
+                          price,
+                          thumbnail,
+                          attributes,
+                          id,
+                          available,
+                          shipping,
+                        } }
+                      >
+                        <div data-testid="product" className="product">
+                          <img src={ thumbnail } alt={ title } />
+                          <p>{title}</p>
+                          <p>{price}</p>
+                          {
+                            shipping.free_shipping
+                              ? <p data-testid="free-shipping">Frete Grátis</p>
+                              : <p>Sem frete grátis</p>
+                          }
+                        </div>
+                      </Link>
+                      <button
+                        type="button"
+                        data-testid="product-add-to-cart"
+                        onClick={ () => {
+                          handleChangeOnCart(
+                            { title, thumbnail, price, id, quantity, available },
+                          );
+                          this.getQuantity();
+                        } }
+                      >
+                        Add to cart
+                      </button>
+                    </div>
+                  ),
+                )
               }
             </div>
           </div>

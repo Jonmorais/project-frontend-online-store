@@ -87,11 +87,12 @@
   padding: 5px;
 }
 
-/* Isso é apenas para esconder o texto do requisito obrigatório */
+/* Isso é apenas para esconder o texto do requisito obrigatório 
 .header p {
   color: #ffd369;
   height: 40px;
 }
+*/
 
 .header img:hover {
   background-color: #eee;
