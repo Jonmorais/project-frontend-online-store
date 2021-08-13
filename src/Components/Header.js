@@ -6,7 +6,6 @@ import '../Pages/initial.css';
 class Header extends Component {
   render() {
     const { change, search } = this.props;
-
     return (
       <div className="flex header">
 

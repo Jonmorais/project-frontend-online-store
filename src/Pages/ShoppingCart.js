@@ -4,6 +4,23 @@ import { Link } from 'react-router-dom';
 import './ShoppingCart.css';
 
 class ShoppingCart extends Component {
+  constructor() {
+    super();
+    this.state = {
+      quantidade: 0,
+    };
+    this.getQuantity = this.getQuantity.bind(this);
+  }
+
+  componentDidMount() {
+    this.getQuantity();
+  }
+
+  getQuantity() {
+    const quantidade = Number(localStorage.getItem('quantidade'));
+    this.setState({ quantidade });
+  }
+
   render() {
     const { products, handleQuantityDecrease, handleQuantityIncrease } = this.props;
     if (Object.keys(products).length === 0) {
@@ -14,9 +31,11 @@ class ShoppingCart extends Component {
         </>
       );
     }
+    const { quantidade } = this.state;
 
     return (
       <div className="session">
+        <p data-testid="shopping-cart-size">{ quantidade }</p>
         {
           Object.keys(products).map((id) => (
             <div key={ products[id].id }>
