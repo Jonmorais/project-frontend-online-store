@@ -5,11 +5,10 @@ import '../Pages/initial.css';
 
 class Header extends Component {
   render() {
-    const { change, search } = this.props;
+    const { change, search, quantidade } = this.props;
     return (
       <div className="flex header">
-
-        <p data-testid="home-initial-message">
+        <p data-testid="home-initial-message" style={ { display: 'none' } }>
           Digite algum termo de pesquisa ou escolha uma categoria.
         </p>
 
@@ -39,6 +38,7 @@ class Header extends Component {
               height="30px"
             />
           </Link>
+          <p data-testid="shopping-cart-size">{ quantidade }</p>
         </div>
 
       </div>
@@ -49,6 +49,7 @@ class Header extends Component {
 Header.propTypes = {
   change: PropTypes.func.isRequired,
   search: PropTypes.func.isRequired,
+  quantidade: PropTypes.number.isRequired,
 };
 
 export default Header;

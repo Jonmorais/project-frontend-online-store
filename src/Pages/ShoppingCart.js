@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './ShoppingCart.css';
+import Header from '../Components/Header';
 
 class ShoppingCart extends Component {
   constructor() {
@@ -34,44 +35,66 @@ class ShoppingCart extends Component {
     const { quantidade } = this.state;
 
     return (
-      <div className="session">
-        <p data-testid="shopping-cart-size">{ quantidade }</p>
-        {
-          Object.keys(products).map((id) => (
-            <div key={ products[id].id }>
-              <img alt={ products[id].title } src={ products[id].thumbnail } />
-              <p data-testid="shopping-cart-product-name">{ products[id].title }</p>
-              <p>{ products[id].price }</p>
-              <button
-                type="button"
-                data-testid="product-decrease-quantity"
-                onClick={ () => handleQuantityDecrease(id) }
-              >
-                -
-              </button>
-              <p data-testid="shopping-cart-product-quantity">
-                { products[id].quantity }
-              </p>
-              <button
-                type="button"
-                data-testid="product-increase-quantity"
-                onClick={ () => handleQuantityIncrease(id) }
-              >
-                +
-              </button>
-            </div>
-          ))
-        }
-        <Link to="/finish-buy">
-          <button
-            type="button"
-            data-testid="checkout-products"
-          >
-            Finish buy
-          </button>
-        </Link>
-        <Link to="/">Back</Link>
-      </div>
+      <>
+        <Header quantidade={ quantidade } />
+        <div className="cartArea">
+          {
+            Object.keys(products).map((id) => (
+              <div key={ products[id].id } className="cartProductArea">
+                <img
+                  alt={ products[id].title }
+                  src={ products[id].thumbnail }
+                  className="cartImage"
+                />
+                <div className="cartProductInformation">
+                  <p
+                    className="productCartTitle"
+                    data-testid="shopping-cart-product-name"
+                  >
+                    { products[id].title }
+                  </p>
+                  <p className="productCartPrice">{ `R$${products[id].price}` }</p>
+                  <div className="buttonsArea">
+                    <button
+                      type="button"
+                      data-testid="product-decrease-quantity"
+                      onClick={ () => handleQuantityDecrease(id) }
+                      className="quantityButton"
+                    >
+                      -
+                    </button>
+                    <p
+                      data-testid="shopping-cart-product-quantity"
+                      className="quantityCartItem"
+                    >
+                      { products[id].quantity }
+                    </p>
+                    <button
+                      type="button"
+                      data-testid="product-increase-quantity"
+                      onClick={ () => handleQuantityIncrease(id) }
+                      className="quantityButton"
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+
+              </div>
+            ))
+          }
+          <Link to="/finish-buy">
+            <button
+              type="button"
+              data-testid="checkout-products"
+              className="endBuyCart"
+            >
+              Finish buy
+            </button>
+          </Link>
+          <Link className="endBuyCart backButton" to="/">Back</Link>
+        </div>
+      </>
     );
   }
 }

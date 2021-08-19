@@ -74,9 +74,11 @@ class Initial extends Component {
     const quantity = 1;
     return (
       <div>
-        <Header change={ this.handleChange } search={ this.fetchProducts } />
-        <p data-testid="shopping-cart-size">{ quantidade }</p>
-
+        <Header
+          change={ this.handleChange }
+          search={ this.fetchProducts }
+          quantidade={ quantidade }
+        />
         <div className="main-content products-session">
 
           <div className="category">
@@ -106,7 +108,7 @@ class Initial extends Component {
                     { id, title, price, thumbnail,
                       attributes, available_quantity: available, shipping },
                   ) => (
-                    <div key={ id }>
+                    <div key={ id } className="productArea">
                       <Link
                         data-testid="product-detail-link"
                         to={ {
@@ -122,18 +124,29 @@ class Initial extends Component {
                       >
                         <div data-testid="product" className="product">
                           <img src={ thumbnail } alt={ title } />
-                          <p>{title}</p>
-                          <p>{price}</p>
-                          {
-                            shipping.free_shipping
-                              ? <p data-testid="free-shipping">Frete Grátis</p>
-                              : <p>Sem frete grátis</p>
-                          }
+                          <div className="infoArea">
+                            <p className="productTitle">{title}</p>
+                            <p>{`R$${price}`}</p>
+                            {
+                              shipping.free_shipping
+                                ? (
+                                  <p
+                                    data-testid="free-shipping"
+                                    className="freeShipping"
+                                  >
+                                    Frete Grátis
+                                  </p>
+                                )
+                                : <p className="noFreeShipping">Sem frete grátis</p>
+                            }
+
+                          </div>
                         </div>
                       </Link>
                       <button
                         type="button"
                         data-testid="product-add-to-cart"
+                        className="addToCard"
                         onClick={ () => {
                           handleChangeOnCart(
                             { title, thumbnail, price, id, quantity, available },
