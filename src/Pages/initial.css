@@ -9,19 +9,19 @@
 }
 
 .content {
-  width: 100%;
+  box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
   gap: 5%;
-  box-sizing: border-box;
   justify-content: center;
+  width: 100%;
 }
 
 .productArea {
-  height: 300px;
   display: flex;
-  width: 400px;
   flex-direction: column;
+  height: 300px;
+  width: 400px;
 }
 
 .flex {
@@ -34,26 +34,26 @@
 }
 
 .product {
-  display: flex;
   align-items: center;
-  justify-content: center;
   background-color: gainsboro;
   border-radius: 10px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
   max-width: 400px;
   min-width: 400px;
-  box-sizing: border-box;
   padding: 20px;
 }
 
 .addToCard {
-  height: 40px;
-  width: 120px;
-  outline: none;
+  background-color: #393e46;
   border: none;
   color: #ffd369;
-  background-color: #393e46;
-  transition: 0.5s;
   font-size: 18px;
+  height: 40px;
+  outline: none;
+  transition: 0.5s;
+  width: 120px;
 }
 
 .addToCard:hover {
@@ -67,8 +67,8 @@
 }
 
 .freeShipping {
-  font-weight: bold;
   color: green;
+  font-weight: bold;
 }
 
 .noFreeShipping {
@@ -79,8 +79,8 @@
 .infoArea {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   height: 140px;
+  justify-content: center;
 }
 
 .content-container button {
@@ -135,52 +135,45 @@
 }
 
 .header {
+  align-items: center;
   background-color: #ffd369;
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 5px;
   min-height: 60px;
+  padding: 5px;
 }
-
-/* Isso é apenas para esconder o texto do requisito obrigatório
-.header p {
-  color: #ffd369;
-  height: 40px;
-}
-*/
 
 .header input {
   background-image: url('https://www.svgrepo.com/show/23287/magnifier.svg');
   background-position: right;
   background-repeat: no-repeat;
+  border: none;
   border-radius: 10px;
+  box-sizing: border-box;
+  font-size: 20px;
   height: 35px;
   margin: auto;
-  width: 400px;
-  box-sizing: border-box;
   padding: 2px 10px;
-  font-size: 20px;
-  border: none;
+  width: 400px;
 }
 
 .header input:focus {
-  outline: none;
   border: 1px solid black;
   box-sizing: border-box;
+  outline: none;
 }
 
 .header button {
   align-items: center;
+  border: none;
+  border-radius: 50px;
   height: 35px;
   margin: auto;
   margin-left: 10px;
   margin-right: 10px;
-  width: 80px;
   outline: none;
-  border: none;
-  border-radius: 50px;
   transition: 0.5s;
+  width: 80px;
 }
 
 .header button:hover {

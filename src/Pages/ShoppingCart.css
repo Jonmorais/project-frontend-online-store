@@ -1,22 +1,22 @@
 .cartArea {
+  align-items: center;
+  background-color: gainsboro;
   display: flex;
   flex-direction: column;
-  background-color: gainsboro;
-  min-height: calc(100vh - 60px);
   justify-content: center;
-  align-items: center;
+  min-height: calc(100vh - 60px);
 }
 
 .cartProductArea {
-  background-color: white;
-  display: flex;
-  flex-direction: row;
   align-items: center;
-  max-width: 600px;
-  min-width: 600px;
-  margin-bottom: 10px;
+  background-color: white;
   border: 1px solid black;
   border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+  max-width: 600px;
+  min-width: 600px;
 }
 
 .quantityButton {
@@ -25,20 +25,20 @@
 }
 
 .cartProductInformation {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  width: 480px;
   height: 120px;
   justify-content: space-evenly;
-  align-items: center;
+  width: 480px;
 }
 
 .cartImage {
-  height: 120px;
-  width: 120px;
-  object-fit: cover;
-  border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  height: 120px;
+  object-fit: cover;
+  width: 120px;
 }
 
 .buttonsArea {
@@ -46,43 +46,42 @@
 }
 
 .productCartTitle {
-  font-weight: bold;
+  font-weight: 900;
   max-width: 400px;
 }
 
 .productCartPrice {
-  font-weight: bold;
+  font-weight: 900;
 }
 
 .quantityCartItem {
-  font-weight: bold;
+  font-weight: 900;
   margin-left: 10px;
   margin-right: 10px;
 }
 
 .endBuyCart {
-  background-color: seagreen;
-  height: 40px;
-  width: 160px;
-  border: none;
-  color: #ffd369;
   background-color: #393e46;
-  transition: 0.5s;
+  border: none;
   border-radius: 5px;
-  font-weight: bold;
+  color: #ffd369;
   font-size: 16px;
+  font-weight: 900;
+  height: 40px;
+  transition: 0.5s;
+  width: 160px;
 }
 
 .endBuyCart:hover {
-  color: #393e46;
   background-color: #ffd369;
   border-radius: 20px;
+  color: #393e46;
 }
 
 .backButton {
-  margin-top: 10px;
-  text-decoration: none;
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
+  margin-top: 10px;
+  text-decoration: none;
 }
