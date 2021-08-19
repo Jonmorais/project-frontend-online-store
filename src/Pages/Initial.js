@@ -129,7 +129,14 @@ class Initial extends Component {
                             <p>{`R$${price}`}</p>
                             {
                               shipping.free_shipping
-                                ? <p data-testid="free-shipping" className="freeShipping">Frete Grátis</p>
+                                ? (
+                                  <p
+                                    data-testid="free-shipping"
+                                    className="freeShipping"
+                                  >
+                                    Frete Grátis
+                                  </p>
+                                )
                                 : <p className="noFreeShipping">Sem frete grátis</p>
                             }
 
