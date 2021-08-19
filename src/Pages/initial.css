@@ -28,10 +28,6 @@
   display: flex;
 }
 
-#products-session {
-  display: flex;
-  width: 100%;
-}
 
 .product {
   align-items: center;
@@ -63,17 +59,17 @@
 }
 
 .productTitle {
-  font-weight: bold;
+  font-weight: 900;
 }
 
 .freeShipping {
   color: green;
-  font-weight: bold;
+  font-weight: 900;
 }
 
 .noFreeShipping {
   color: red;
-  font-weight: bold;
+  font-weight: 900;
 }
 
 .infoArea {
