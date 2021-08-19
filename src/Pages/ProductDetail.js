@@ -38,9 +38,7 @@ class ProductDetail extends Component {
     const quantity = 1;
     return (
       <div>
-        <Header />
-
-        <p data-testid="shopping-cart-size">{ quantidade }</p>
+        <Header quantidade={ quantidade } />
 
         <div className="session">
           <p data-testid="product-detail-name">
