@@ -41,9 +41,18 @@ class ShoppingCart extends Component {
           {
             Object.keys(products).map((id) => (
               <div key={ products[id].id } className="cartProductArea">
-                <img alt={ products[id].title } src={ products[id].thumbnail } className="cartImage" />
+                <img
+                  alt={ products[id].title }
+                  src={ products[id].thumbnail }
+                  className="cartImage"
+                />
                 <div className="cartProductInformation">
-                  <p className="productCartTitle" data-testid="shopping-cart-product-name">{ products[id].title }</p>
+                  <p
+                    className="productCartTitle"
+                    data-testid="shopping-cart-product-name"
+                  >
+                    { products[id].title }
+                  </p>
                   <p className="productCartPrice">{ `R$${products[id].price}` }</p>
                   <div className="buttonsArea">
                     <button
@@ -54,7 +63,10 @@ class ShoppingCart extends Component {
                     >
                       -
                     </button>
-                    <p data-testid="shopping-cart-product-quantity" className="quantityCartItem">
+                    <p
+                      data-testid="shopping-cart-product-quantity"
+                      className="quantityCartItem"
+                    >
                       { products[id].quantity }
                     </p>
                     <button
